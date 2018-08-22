@@ -4,7 +4,7 @@ by doomtrinity
 ### A simple command line program to change the prefix of C++ classes for Unreal Engine projects.  
 
 Usage:   
-java -jar UEClassPrefixRename.jar "`<sourceDir>`" `<oldPrefix>` `<newPrefix>` `<projectName>` `<ignorelistFile>`  
+java -jar UEClassPrefixRename.jar `<sourceDir>` `<oldPrefix>` `<newPrefix>` `<projectName>` `<ignorelistFile>`  
   
 Example:  
 java -jar UEClassPrefixRename.jar "/home/doomtrinity/test/Source" Shooter Fps ShooterGame “/home/doomtrinity/test/ignorelist.txt”  
@@ -26,7 +26,7 @@ Renaming classes could be a dangerous thing and it’s very easy to get into tro
 ##### Use this at your own risk! 
   
 ###### Rules:  
-- `<sourceDir>` parameter in command line options must be the absolute path of the source folder and has to be included in double quotes
+- `<sourceDir>` parameter in command line options must be the absolute path of the source folder (should be wrapped in double quotes)
 this is fine: “c:\users\doomtrinity\MyUnrealProject\Source”  
 this is fine: “/home/user/doomtrinity/MyUnrealProject/Source”  
 this is bad: “Source”  
@@ -42,7 +42,7 @@ and this is bad
 class  
            AMyActor : public AActor // new line, bad!  
 this is needed by the program in order to detects classes to be renamed. Also, the name of .h file must be the same of .cpp file.   Files that don’t fulfill these rules will just simply be copied without being renamed, still these files could be refactored if references to other renamed classes are in there.
-- `<ignorelistFile>` is an absolute path to a simple text file where you have to put all headers of the classes you want to ignore, one per line, e.g.  
+- `<ignorelistFile>` is an absolute path (should be wrapped in double quotes) to a simple text file where you have to put all headers of the classes you want to ignore, one per line, e.g.  
 ShooterGame.h  
 ShooterEngine.h  
   
