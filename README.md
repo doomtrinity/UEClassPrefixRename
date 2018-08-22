@@ -26,7 +26,7 @@ Renaming classes could be a dangerous thing and it’s very easy to get into tro
 ##### Use this at your own risk! 
   
 ###### Rules:  
-- `<sourceDir>` parameter in command line options must be the absolute path of the source folder (should be wrapped in double quotes)
+- `<sourceDir>` parameter in command line options must be the absolute path of the source folder (should be wrapped in double quotes)  
 this is fine: “c:\users\doomtrinity\MyUnrealProject\Source”  
 this is fine: “/home/user/doomtrinity/MyUnrealProject/Source”  
 this is bad: “Source”  
@@ -55,7 +55,7 @@ ShooterEngine.h
 - there are few cases where this program won’t replace the class name in source files. The case I faced is in ShooterCheatManager.h at line:  
 UCLASS(Within=ShooterPlayerController)  
 I intentionally left this out, you’ll get a compile error, at least in this case, so you’ll know about it. The problem here is that the name is the file name and not the class name which may contain Unreal prefixes. I only look for file names in \#include, and I look  for class names in the remaining part of the code, so this is an exception.
--this program is designed to replace prefix, but it should also work if the word you need to replace is in the middle of the class name or at the end, I just haven’t tested it.
+- this program is designed to replace prefix, but it should also work if the word you need to replace is in the middle of the class name or at the end, I just haven’t tested it.
 - in case of projects derived from templates like ShooterGame, this old project name will still be referenced in few places even if you assign a different name when you create the project from the launcher. You have to use this name instead of your project name, as `<projectName>` parameter. Otherwise you should use your project name, for projects created from scratch. Project rename is not covered here.
 - projects like ShooterGame could be tricky to rename as there are many files and references involved, so you cannot just use this program and hope to get all classes renamed and a working game. You’ll get into troubles for sure, at least that happened to me when I tried to build a packaged version of the game. This is where ignorelist file will help. You should put in this file any file that deserves special treatment and couldn’t just be renamed with a batch tool. You will find the file I used for my test in resources folder.
 - `<projectName>` is used by the program only as part of redirects for DefaultEngine.ini.
