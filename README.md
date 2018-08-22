@@ -3,10 +3,12 @@ by doomtrinity
 
 ### A simple command line program to change the prefix of C++ classes for Unreal Engine projects.  
 
-Usage: java -jar UEClassPrefixRename.jar "`<sourceDir`>" `<oldPrefix`> `<newPrefix`> `<projectName`> `<ignorelistFile`>  
+Usage:   
+java -jar UEClassPrefixRename.jar "`<sourceDir`>" `<oldPrefix`> `<newPrefix`> `<projectName`> `<ignorelistFile`>  
+  
 Example:  
 java -jar UEClassPrefixRename.jar "/home/doomtrinity/test/Source" Shooter Fps ShooterGame “/home/doomtrinity/test/ignorelist.txt”  
-
+  
 This program will both rename files and refactor source code.  
 A “new” folder containing the refactored source files will be created in the same path of the source parent folder, leaving original files unaffected. Also, a list of redirects to be used in DefaultEngine.ini will be printed to the console.  
 For example, if you have a class named ShooterCharacter (which inherits from Actor class), and you want to rename “Shooter” prefix with “Fps”, this tool will:  
